@@ -1,0 +1,28 @@
+version: '3'
+services:
+  strapi:
+    image: strapi/strapi
+    environment:
+      DATABASE_CLIENT: mongo
+      DATABASE_NAME: server
+      DATABASE_HOST: cluster0.37ysk.mongodb.net
+      DATABASE_PORT: 27017
+      DATABASE_USERNAME: ronaldchan
+      DATABASE_PASSWORD: 1q2wEDRF
+      DATABASE_SRV: 'true'
+      DATABASE_SSL: 'true'
+    volumes:
+      - ./app:/srv/app
+    ports:
+      - '1337:1337'
+  #   depends_on:
+  #     - mongo
+
+  # mongo:
+  #   image: mongo
+  #   environment:
+  #     MONGO_INITDB_DATABASE: strapi
+  #     MONGO_INITDB_ROOT_USERNAME: strapi
+  #     MONGO_INITDB_ROOT_PASSWORD: strapi
+  #   volumes:
+  #     - ./data:/data/db
